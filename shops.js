@@ -44,8 +44,8 @@ DonutShop.prototype.render = function(){
   }
   var total = document.createElement('td');
   total.textContent = totalDonuts;
-  console.log(totalDonuts);
-  //row.appendChild(totalDonuts);
+  console.log(row);
+  row.appendChild(total);
   return row;
 };
 
