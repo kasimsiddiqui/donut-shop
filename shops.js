@@ -41,16 +41,29 @@ DonutShop.prototype.render = function(){
     data.textContent =  myArray[i];
     row.appendChild(data);
     totalDonuts += myArray[i];
-  }
+    }
   var total = document.createElement('td');
   total.textContent = totalDonuts;
-  console.log(row);
   row.appendChild(total);
   return row;
 };
 
-document.getElementById('content').appendChild(location1.render());
-document.getElementById('content').appendChild(location2.render());
-document.getElementById('content').appendChild(location3.render());
-document.getElementById('content').appendChild(location4.render());
-document.getElementById('content').appendChild(location5.render());
+var content = document.getElementById('content');
+content.appendChild(location1.render());
+content.appendChild(location2.render());
+content.appendChild(location3.render());
+content.appendChild(location4.render());
+content.appendChild(location5.render());
+
+var buttonPressed = function(){
+  console.log("buttonPressed")
+  var newLocationName = document.getElementById('locNameId').value;
+  var newMinCust = document.getElementById('minCustId').value;
+  var newMaxCust = document.getElementById('maxCustId').value;
+  var newAverage = document.getElementById('avgDonutsId').value;
+  var newLocation = new DonutShop(newLocationName, newMinCust, newMaxCust, newAverage);
+  var newContent = document.getElementById('content');
+  content.appendChild(newLocation.render());
+}
+var el = document.getElementById("pushed");
+el.addEventListener("click", buttonPressed, false);
