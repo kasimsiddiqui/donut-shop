@@ -21,7 +21,7 @@ DonutShop.prototype.donutsPerHour = function(){
 };
 
 DonutShop.prototype.donutsPerDay = function(){
-  for (var i = 0; i < 12; i++){
+  for (var i = 0; i < 11; i++){
     this.hourlyDonuts.push(this.donutsPerHour());
   }
   return this.hourlyDonuts;
@@ -53,3 +53,4 @@ document.getElementById('content').appendChild(location1.render());
 document.getElementById('content').appendChild(location2.render());
 document.getElementById('content').appendChild(location3.render());
 document.getElementById('content').appendChild(location4.render());
+document.getElementById('content').appendChild(location5.render());
