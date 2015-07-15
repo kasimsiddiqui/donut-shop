@@ -36,7 +36,6 @@ DonutShop.prototype.render = function(){
   var totalDonuts = 0;
   var myArray = this.donutsPerDay();
   for (var i = 0; i < this.hourlyDonuts.length; i++){
-    totalDonuts += myArray[i];
     var data = document.createElement('td');
     data.textContent =  myArray[i];
     row.appendChild(data);
