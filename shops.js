@@ -3,6 +3,7 @@ var DonutShop = function(location, min, max, avg){
   this.min = min;
   this.max = max;
   this.avg = avg;
+  this.hoursOpen = 11;
   this.hourlyDonuts = [];
 };
 
@@ -21,7 +22,7 @@ DonutShop.prototype.donutsPerHour = function(){
 };
 
 DonutShop.prototype.donutsPerDay = function(){
-  for (var i = 0; i < 11; i++){
+  for (var i = 0; i < this.hoursOpen; i++){
     this.hourlyDonuts.push(this.donutsPerHour());
   }
   return this.hourlyDonuts;
@@ -36,7 +37,6 @@ DonutShop.prototype.render = function(){
   var totalDonuts = 0;
   var myArray = this.donutsPerDay();
   for (var i = 0; i < this.hourlyDonuts.length; i++){
-    totalDonuts += myArray[i];
     var data = document.createElement('td');
     data.textContent =  myArray[i];
     row.appendChild(data);
@@ -65,5 +65,6 @@ var buttonPressed = function(){
   var newContent = document.getElementById('content');
   content.appendChild(newLocation.render());
 }
+
 var el = document.getElementById("pushed");
 el.addEventListener("click", buttonPressed, false);
