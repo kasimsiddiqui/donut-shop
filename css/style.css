@@ -1,46 +1,54 @@
 h1{
-    font-family: 'Stalemate', sans-serif;
-    color: #FFF0A5;
-    text-align: center;
-    font-size: 40px;
+  font-family: 'Stalemate', sans-serif;
+  color: #FFF0A5;
+  text-align: center;
+  font-size: 40px;
 }
 
 *{
   font-family: 'Lato';
 }
+
 table,th{
   border: 1px solid black;
 }
 
 div{
-
   width:1200px;
-
+  border-radius: 5px;
 }
+
 th {
   background-color: #468966;
+  border-radius: 5px;
 }
-table{
 
+table{
   width:1200px;
   background-color: #FFB03B;
+  border-radius: 5px;
 }
+
 td{
   text-align: center;
 }
+
 button{
   float: right;
+  border-radius: 5px;
 }
 
 fieldset{
   background-color: #B64926;
+  border-radius: 5px;
 }
-body{
 
-background-color: #FFF0A5;
+body{
+  background-color: #FFF0A5;
 }
 
 header{
+  border-radius: 5px;
   background-color: #8E2800;
   width:1200px;
 }
