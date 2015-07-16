@@ -7,6 +7,7 @@ var DonutShop = function(location, min, max, avg){
   this.avg = avg;
   this.hoursOpen = 11;
   this.hourlyDonuts = [];
+  this.totalDonuts = 0;
 };
 
 shops.push(new DonutShop("Downtown", 8, 43, 4.5));
@@ -36,16 +37,15 @@ DonutShop.prototype.render = function(){
   name.textContent = this.location;
   row.appendChild(name);
 
-  var totalDonuts = 0;
   var myArray = this.donutsPerDay();
   for (var i = 0; i < this.hourlyDonuts.length; i++){
     var data = document.createElement('td');
     data.textContent =  myArray[i];
     row.appendChild(data);
-    totalDonuts += myArray[i];
+    this.totalDonuts += myArray[i];
     }
   var total = document.createElement('td');
-  total.textContent = totalDonuts;
+  total.textContent = this.totalDonuts;
   row.appendChild(total);
   return row;
 };
@@ -60,11 +60,31 @@ var buttonPressed = function(){
   var newLocationName = document.getElementById('locNameId').value;
   var newMinCust = document.getElementById('minCustId').value;
   var newMaxCust = document.getElementById('maxCustId').value;
-  var newAverage = document.getElementById('avgDonutsId').value;
-  var newLocation = new DonutShop(newLocationName, newMinCust, newMaxCust, newAverage);
-  var newContent = document.getElementById('content');
-  content.appendChild(newLocation.render());
+  var newAverage = document.getElementById('avgDonutsId').value
+  var found = false;
+    for(var i = 0; i < shops.length; i++){
+      if(newLocationName.toUpperCase() === shops[i].location.toUpperCase()){
+        var found = true;
+        var index = i;
+        break;
+        }
+    }
+      if (found === false){
+        shops.push(new DonutShop(newLocationName, newMinCust, newMaxCust, newAverage));
+        shops[shops.length - 1].donutsPerDay();
+        shops[shops.length - 1].render();
+      }
+    if (found === true){
+      var foundRow = document.getElementById(shops[index].location);
+      var childrenToReplace = foundRow.childNodes;
+      shops[index] = new Shop(newLocationName, newMin, newMax, newAvg);
+      shops[index].donutsPerDay();
+      for (var i = 1; i < childrenToReplace.length; i++){
+        childrenToReplace[i].textContent = shops[index].donutsPerDay[i-1];
+      }
+    childrenToReplace[childrenToReplace.length - 1].textContent = shops[index].this.totalDonuts;
+    }
 }
-
 var el = document.getElementById("pushed");
 el.addEventListener("click", buttonPressed, false);
+

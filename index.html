@@ -3,9 +3,13 @@
 <head>
   <title>Donut Shop</title>
   <link rel="stylesheet" text="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Stalemate">
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
 </head>
 <body>
-  <h1>Donut Shop</h1>
+  <header>
+    <h1>Donut Shop</h1>
+  </header>
   <table id="content">
     <tr>
     <th>Location/Time</th>
@@ -27,18 +31,15 @@
   <div>
     <form>
       <fieldset>
-        <legend>Add New or Update Donut Shop</legend>
-        <p>Location Name</p>
+        Location Name:
         <input id="locNameId" type="text">
-        <p>Minimum Customers</p>
-        <input id="minCustId" type="text">
-        <p>Maxiumum Customers</p>
-        <input id="maxCustId" type="text">
-        <p>Average Donuts per Customer</p>
-        <input id="avgDonutsId" type="text">
-        </br></br>
+        Minimum Customers:
+        <input id="minCustId" type="text" size="4">
+        Maxiumum Customers:
+        <input id="maxCustId" type="text" size="4">
+        Average Donuts per Customer:
+        <input id="avgDonutsId" type="text" size="4">
         <button type="button" id="pushed">  Add New Or Update Donut Shop</button>
-        </p>
       </fieldset>
     </form>
   <div>
