@@ -66,5 +66,5 @@ var buttonPressed = function(){
   content.appendChild(newLocation.render());
 }
 
-var el = document.getElementById("pushed");
+var el = document.getElementById("button");
 el.addEventListener("click", buttonPressed, false);
